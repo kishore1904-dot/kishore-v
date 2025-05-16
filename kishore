@@ -1,0 +1,47 @@
+All source files are available in the GitHub repository. Structure:
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Relationships between air quality variables
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x='PM2.5 (µg/m³)', y='PM10 (µg/m³)', hue='AQI Level', data=df)
+plt.title('PM2.5 vs. PM10')
+plt.savefig('pm25_vs_pm10.png')
+plt.show()
+
+plt.figure(figsize=(12, 6))
+plt.plot(df['Date'], df['PM2.5 (µg/m³)'], label='PM2.5', color='blue')
+plt.plot(df['Date'], df['PM10 (µg/m³)'], label='PM10', color='red') # Fixed the syntax error here
+plt.title('PM2.5 and PM10 Trends over Time')
+plt.xlabel('Date')
+plt.ylabel('Concentration (µg/m³)')
+plt.legend()
+plt.savefig('pm25_pm10_trends.png')
+plt.show()
+
+# 2. Distribution of AQI levels
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='Location', y='PM2.5 (µg/m³)', data=df)
+plt.title('Distribution of PM2.5 by Location')
+plt.savefig('pm25_distribution.png')
+plt.show()
+
+# 3. Relationship between air quality and meteorological factors
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x='Temperature (°C)', y='PM2.5 (µg/m³)', hue='AQI Level', data=df)
+plt.title('PM2.5 vs Temperature')
+plt.savefig('pm25_vs_temp.png')
+plt.show()
+
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x='Humidity (%)', y='PM2.5 (µg/m³)', hue='AQI Level', data=df)
+plt.title('PM2.5 vs Humidity')
+plt.savefig('pm25_vs_humidity.png')
+plt.show()
+
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x='Wind Speed (m/s)', y='PM2.5 (µg/m³)', hue='AQI Level', data=df)
+plt.title('PM2.5 vs Wind Speed')
+plt.savefig('pm25_vs_windspeed.png')
+plt.show()
